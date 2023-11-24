@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<style>
+    tr th img{
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-6 text-center">COMPARISON TWO PRODUCTS</h1>
+
+       <div class="col-md-9 mx-auto">
+        <table class="table">
+            <tr>
+                <th>Select Products</th>
+                <th>
+                    <select name="" id="sel1" class="form-control" onclick="item1(this.value)">
+                        <option value="0">---Select Product 1 ---</option>
+                    </select>
+                </th>
+                <th>
+                    <select name="" id="sel2" class="form-control" onclick="item2(this.value)">
+                        <option value="0">---Select Product 2 ---</option>
+                    </select>
+
+                </th>
+            </tr>
+            <tr>
+                <th>Product Image</th>
+                <th><img src="images/0.png" alt="" id="img1"></th>
+                <th><img src="images/0.png" alt="" id="img2"></th>
+            </tr>
+
+        </table>
+       </div>
+
+        
+    </div>
+    <script src="file.js"></script>
+    <script>
+        for(var i=1; i<product.length;i++){
+           
+            document.getElementById('sel1').innerHTML += `
+            <option value="${i}">${product[i].name}</option>
+            `
+
+
+            document.getElementById('sel2').innerHTML += `
+            <option value="${i}">${product[i].name}</option>
+            `
+        }
+        function item1(a){
+            var select2=document.getElementById('sel2').value;
+            if(a!=select2){
+                document.getElementById('img1').src=`${product[a].image}`
+                
+            }
+            else{
+                document.getElementById('img1').src=product[0].image
+                
+
+            }
+            
+        }
+    </script>
+</body>
+</html>
